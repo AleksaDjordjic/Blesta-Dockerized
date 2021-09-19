@@ -27,7 +27,7 @@ services:
       dockerfile: DOCKERFILE
     labels: 
       ofelia.enabled: "true"
-      ofelia.job-exec.pqueue.schedule: "@every 1m"
+      ofelia.job-exec.pqueue.schedule: "@every 5m"
       ofelia.job-exec.pqueue.command: "php /var/www/html/blesta/index.php cron"
       ofelia.job-exec.pqueue.user: "www-data"
     restart: always
