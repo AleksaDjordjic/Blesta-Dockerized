@@ -1,0 +1,65 @@
+version: '2.3'
+
+services:
+  website:
+    build: 
+      context: ./apache
+      dockerfile: DOCKERFILE
+    depends_on: 
+      mysql: 
+        condition: service_started
+    volumes: 
+      - ./src:/var/www/html
+    ports: 
+      - 8080:80
+    environment:
+      - VIRTUAL_HOST=blesta.local
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    restart: always
+
+  worker:
+    command: wait-for -t 5 website:80 -- php /var/www/html/blesta/index.php cron
+    depends_on: 
+      website:
+        condition: service_started
+    build:
+      context: ./apache
+      dockerfile: DOCKERFILE
+    labels: 
+      ofelia.enabled: "true"
+      ofelia.job-exec.pqueue.schedule: "@every 1m"
+      ofelia.job-exec.pqueue.command: "php /var/www/html/blesta/index.php cron"
+      ofelia.job-exec.pqueue.user: "www-data"
+    restart: always
+    volumes_from: 
+      - website
+
+  cron:
+    command: daemon --docker
+    depends_on: 
+      website:
+        condition: service_started
+      worker:
+        condition: service_started
+    image: mcuadros/ofelia:latest
+    network_mode: none
+    privileged: true
+    restart: always
+    volumes: 
+      - ${DOCKER_SOCKET:-/var/run/docker.sock}:${DOCKER_SOCKET:-/var/run/docker.sock}
+
+  admin:
+    image: phpmyadmin
+    ports:
+      - 8081:80
+    environment: 
+      - PMA_ARBITRARY=1
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: always

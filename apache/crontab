@@ -1,0 +1,1 @@
+*/5 * * * * /usr/local/bin/php -q /var/www/html/blesta/index.php cron > /dev/null 2>&1
