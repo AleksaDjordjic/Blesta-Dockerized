@@ -14,7 +14,6 @@ if test "${APACHE_DOCUMENT_ROOT}" != ""; then
     sed -ri -e "s!/var/www/!${APACHE_DOCUMENT_ROOT}!g" /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 fi
 
-service cron start
 service sendmail restart
 service apache2 restart
 
