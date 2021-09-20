@@ -37,7 +37,6 @@ Blesta inside of Docker containers intended for development use, not recommended
 You should by now have a working Blesta instance, but in System Status you might notice 2 things:
 1. "Cron has never run. Configure?" - Don't worry about this, wait at most 5 minutes and let the cron run, this will disappear.
 2. "A system directory is not writeable. Update?" - This needs to get updated.
-    - Inside of `/src` create a folder named `logs_blesta`
     - Click on ["Update?"](http://localhost:8080/blesta/admin/settings/system/general/basic/)
     - Change `Uploads Directory` to `/var/www/html/uploads/`
     - Change `Log Directory` to `/var/www/html/logs_blesta/`
