@@ -23,7 +23,7 @@ Blesta inside of Docker containers intended for development use, not recommended
         - Username: root
         - Password: root
 2. Create a database, name it something that you can remember like `blesta`
-3. Go to [localhost:8080](http://localhost:8080)
+3. Go to [localhost:8080/blesta](http://localhost:8080/blesta)
 4. Install Blesta
     * Database Information:
         - Host: mysql

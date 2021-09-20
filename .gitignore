@@ -3,3 +3,6 @@ uploads/
 logs_blesta/
 mysql/
 .vscode/
+/src/LICENSE
+/src/README.md
+/src/blesta-*.zip

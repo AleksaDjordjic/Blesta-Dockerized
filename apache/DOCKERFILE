@@ -26,7 +26,8 @@ RUN apt-get install -y \
         zip \
         libgmp-dev \
         libc-client-dev \
-        libkrb5-dev 
+        libkrb5-dev \
+        wget
 
 RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
