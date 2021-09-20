@@ -13,7 +13,7 @@ Blesta inside of Docker containers intended for development use, not recommended
 
 ## Installation
 
-1. Download and extract `blesta-{version}.zip` inside of `/src`
+1. Go to [Blesta download page](https://account.blesta.com/client/plugin/download_manager/client_main/) and pick a version to install, note the link `.../download/{id}/blesta-{version}.zip`, edit the docker-compose with the {id} and {version} you need.
 2. `docker-compose up -d`
 
 ## Setup
