@@ -13,7 +13,7 @@ Blesta inside of Docker containers intended for development use, not recommended
 
 ## Installation
 
-1. Extract `blesta-{version}.zip` inside of `/src`
+1. Download and extract `blesta-{version}.zip` inside of `/src`
 2. `docker-compose up -d`
 
 ## Setup
