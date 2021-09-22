@@ -14,7 +14,7 @@ services:
       - 8080:80
     environment:
       - VIRTUAL_HOST=blesta.local
-      - APACHE_DOCUMENT_ROOT=/var/www/html
+      - APACHE_DOCUMENT_ROOT=/var/www/html/blesta
       - BLESTA_DOWNLOAD_ID=190 # part of the URL, before the filename, 5.1.3 for example is 190 because URL is .../client_main/download/190/blesta-5.1.3.zip
       - BLESTA_VERSION=5.1.3
       - IS_WORKER=false

@@ -31,6 +31,10 @@ else
     fi
 fi
 
+# permissions just in case
+chown -R www-data:www-data /var/www/html
+chmod -R 775 /var/www/html
+
 service sendmail restart
 service apache2 restart
 

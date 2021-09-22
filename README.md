@@ -13,7 +13,7 @@ Blesta inside of Docker containers intended for development use, not recommended
 
 ## Installation
 
-1. Go to [Blesta download page](https://account.blesta.com/client/plugin/download_manager/client_main/) and pick a version to install, note the link `.../download/{id}/blesta-{version}.zip`, edit the docker-compose with the {id} and {version} you need.
+1. Go to [Blesta download page](https://account.blesta.com/client/plugin/download_manager/client_main/) and pick a version to install, note the link `.../download/{id}/blesta-{version}.zip`, edit the `docker-compose.yml` with the {id} and {version} you need.
 2. `docker-compose up -d`
 
 ## Setup
@@ -34,10 +34,4 @@ Blesta inside of Docker containers intended for development use, not recommended
 5. Enter your licence key and create an admin account 
 
 ## After Setup
-You should by now have a working Blesta instance, but in System Status you might notice 2 things:
-1. "Cron has never run. Configure?" - Don't worry about this, wait at most 5 minutes and let the cron run, this will disappear.
-2. "A system directory is not writeable. Update?" - This needs to get updated.
-    - Click on ["Update?"](http://localhost:8080/blesta/admin/settings/system/general/basic/)
-    - Change `Uploads Directory` to `/var/www/html/uploads/`
-    - Change `Log Directory` to `/var/www/html/logs_blesta/`
-    - Update Settings
+You should by now have a working Blesta instance, but in System Status you might notice "Cron has never run. Configure?". Don't worry about this, wait at most 5 minutes and let the cron run, this will disappear.
